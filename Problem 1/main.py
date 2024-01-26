@@ -1,3 +1,7 @@
+"""
+Problem 1: Sum of all multiples of 3 and 5 below 1000
+"""
+
 temp = []
 loop = 1001
 for i in range(1, loop):

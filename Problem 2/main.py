@@ -1,3 +1,7 @@
+"""
+Problem Statement: A Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+"""
+
 num1 = 0
 num2 = 1
 fib = []
@@ -14,3 +18,4 @@ for i in range(100000):
         continue
 
 print(sum(fib))
+

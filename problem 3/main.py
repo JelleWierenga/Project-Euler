@@ -1,3 +1,7 @@
+"""
+Problem 3: Largest prime factor
+"""
+
 largest_factor = 2
 num = 600851475143
 
