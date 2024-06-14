@@ -1,3 +1,5 @@
+import math
+
 matrix = [
 [8, 0o2, 22, 97, 38, 15, 00, 40, 00, 75, 0o4, 0o5, 0o7, 78, 52, 12, 50, 77, 91, 8],
 [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 0o4, 56, 62, 00],
@@ -20,20 +22,78 @@ matrix = [
 [20, 73, 35, 29, 78, 31, 90, 0o1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 0o5, 54],
 [0o1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 0o1, 89, 19, 67, 48]]
 
+highest = 0
+place = []
+
+for i in range(20):
+    for j in range(17):
+        frst_four_numbers = matrix[i][j:j+4]
+        som = math.prod(frst_four_numbers)
+        print(som)
+        print(frst_four_numbers)
+        print("\n")
+        if som > highest:
+            highest = som
+            place = frst_four_numbers
 
 
-# Rechts: _:+1
-# Links: _:-1
-# Boven: -1:_
-# Onder: +1:_
-# Diagonaal rechtsboven: -1:+1
-# Diagonaal rechtsbeneden: +1:+1
-# Diagonaal linksboven: -1:-1
-# Diagonaal linksbeneden: +1:-1
+for i in range(17):
+    for j in range(20):
+        first_four_numbers = [
+            matrix[i][j],
+            matrix[i + 1][j],
+            matrix[i + 2][j],
+            matrix[i + 3][j]
+        ]
+        sum_vertical = math.prod(first_four_numbers)
+        if sum_vertical > highest:
+            highest = sum_vertical
+            place = first_four_numbers
+for i in range(20):
+    for j in range(17):
+        first_four_numbers = matrix[i][j:j+4]
+        product = math.prod(first_four_numbers)
+        if product > highest:
+            highest = product
+            place = first_four_numbers
 
-# print(matrix[1][1])
+for i in range(17):
+    for j in range(20):
+        first_four_numbers = [
+            matrix[i][j],
+            matrix[i + 1][j],
+            matrix[i + 2][j],
+            matrix[i + 3][j]
+        ]
+        product = math.prod(first_four_numbers)
+        if product > highest:
+            highest = product
+            place = first_four_numbers
 
+for i in range(17):
+    for j in range(17):
+        first_four_numbers = [
+            matrix[i][j],
+            matrix[i + 1][j + 1],
+            matrix[i + 2][j + 2],
+            matrix[i + 3][j + 3]
+        ]
+        product = math.prod(first_four_numbers)
+        if product > highest:
+            highest = product
+            place = first_four_numbers
 
-for a in range(0, 20):
-    for b in range(0, 20):
-        print(matrix[a][b])
+for i in range(17):
+    for j in range(3, 20):
+        first_four_seconds = [
+            matrix[i][j],
+            matrix[i + 1][j - 1],
+            matrix[i + 2][j - 2],
+            matrix[i + 3][j - 3]
+        ]
+        product = math.prod(first_four_seconds)
+        if product > highest:
+            highest = product
+            place = first_four_seconds
+
+print(highest, place)
