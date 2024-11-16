@@ -12,7 +12,6 @@ for i in range(1, 28123):
 som = set()
 for i in range(len(abundant)):
     for j in range(i, len(abundant)):
-        # print(abundant[i] + abundant[j])
         som.add(abundant[i] + abundant[j])
 
 klaar = sum([x for x in range(1, 28123) if x not in som])
